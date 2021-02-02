@@ -12,6 +12,7 @@ public class ProjetoPostDTO {
 	private String nome;
 	private String descricao;
 	private String equipe;
+	private String download;
 	private String icon;
 	private String onesheet;
 
@@ -27,6 +28,10 @@ public class ProjetoPostDTO {
 		return equipe;
 	}
 	
+	public String getDownload() {
+		return download;
+	}
+	
 	public String getIcon() {
 		return icon;
 	}
@@ -40,6 +45,7 @@ public class ProjetoPostDTO {
 		ret.setNome(nome);
 		ret.setDescricao(descricao);
 		ret.setEquipe(equipe);
+		ret.setDownload(download);
 		ret.setIcon(icon);
 		ret.setOnesheet(onesheet);
 		return ret;

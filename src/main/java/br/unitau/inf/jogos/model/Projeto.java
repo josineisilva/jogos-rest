@@ -12,6 +12,7 @@ public class Projeto {
     private String nome;
     private String descricao;
     private String equipe;
+    private String download;
     private String icon;
     private String onesheet;
     
@@ -42,7 +43,14 @@ public class Projeto {
 	public void setEquipe(String equipe) {
 		this.equipe = equipe;
 	}
-	
+
+	public String getDownload() {
+		return download;
+	}
+	public void setDownload(String download) {
+		this.download = download;
+	}
+
 	public String getIcon() {
 		return icon;
 	}

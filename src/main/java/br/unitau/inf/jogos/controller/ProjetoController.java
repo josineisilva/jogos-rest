@@ -145,6 +145,7 @@ public class ProjetoController {
 			projeto.setNome(novo.getNome());
 			projeto.setDescricao(novo.getDescricao());
 			projeto.setEquipe(novo.getEquipe());
+			projeto.setDownload(novo.getDownload());
 			projeto.setIcon(novo.getIcon());
 			projeto.setOnesheet(novo.getOnesheet());
 			ret = ResponseEntity.ok(projeto);

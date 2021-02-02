@@ -1,0 +1,19 @@
+CREATE TABLE noticia (
+                     id          SERIAL PRIMARY KEY,
+                     projeto_id  INTEGER   NOT NULL REFERENCES projeto,
+                     data        TIMESTAMP NOT NULL,
+                     texto       TEXT      NOT NULL,
+                     usuario_id  INTEGER   NOT NULL REFERENCES usuario,
+                     bloqueado   BOOLEAN   NOT NULL
+                     );
+CREATE INDEX noticia_projeto  ON noticia ( projeto_id );
+CREATE INDEX noticia_data     ON noticia ( data );
+CREATE INDEX noticia_usuario  ON noticia ( usuario_id );
+
+COMMENT ON TABLE  noticia             IS 'Cadastro de noticias sobre os projetos';
+COMMENT ON COLUMN noticia.id          IS 'Codigo do noticia';
+COMMENT ON COLUMN noticia.projeto_id  IS 'Codigo do projeto da noticia';
+COMMENT ON COLUMN noticia.data        IS 'Data/hora da inclusao da noticia';
+COMMENT ON COLUMN noticia.texto       IS 'Texto da noticia';
+COMMENT ON COLUMN noticia.usuario_id  IS 'Codigo do usuario que incluiu a noticia';
+COMMENT ON COLUMN noticia.bloqueado   IS 'Indica que o acesso a noticia esta bloqueado';

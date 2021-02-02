@@ -1,0 +1,10 @@
+CREATE TABLE usuarioperfil (
+                           usuario_id  INTEGER UNIQUE REFERENCES usuario,
+                           perfil_id   INTEGER REFERENCES perfil
+                           );
+CREATE INDEX usuarioperfil_usuario  ON usuarioperfil ( usuario_id );
+CREATE INDEX usuarioperfil_perfil   ON usuarioperfil ( perfil_id );
+
+COMMENT ON TABLE  usuarioperfil             IS 'Perfis dos usuarios';
+COMMENT ON COLUMN usuarioperfil.usuario_id  IS 'Codigo do usuario';
+COMMENT ON COLUMN usuarioperfil.perfil_id   IS 'Codigo do perfil';

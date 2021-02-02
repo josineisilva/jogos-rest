@@ -1,0 +1,19 @@
+CREATE TABLE screenshotcomentario (
+                                  id             SERIAL PRIMARY KEY,
+                                  screenshot_id  INTEGER   NOT NULL REFERENCES screenshot,
+                                  data           TIMESTAMP NOT NULL,
+                                  texto          TEXT      NOT NULL,
+                                  usuario_id     INTEGER   NOT NULL REFERENCES usuario,
+                                  bloqueado      BOOLEAN   NOT NULL
+                                  );
+CREATE INDEX screenshotcomentario_screenshot  ON screenshotcomentario ( screenshot_id );
+CREATE INDEX screenshotcomentario_data        ON screenshotcomentario ( data );
+CREATE INDEX screenshotcomentario_usuario     ON screenshotcomentario ( usuario_id );
+
+COMMENT ON TABLE  screenshotcomentario                IS 'Cadastro de comentarios sobre os screenshots';
+COMMENT ON COLUMN screenshotcomentario.id             IS 'Codigo do comentario';
+COMMENT ON COLUMN screenshotcomentario.screenshot_id  IS 'Codigo do screenshot do comentario';
+COMMENT ON COLUMN screenshotcomentario.data           IS 'Data/hora da inclusao do comentario';
+COMMENT ON COLUMN screenshotcomentario.texto          IS 'Texto do comentario';
+COMMENT ON COLUMN screenshotcomentario.usuario_id     IS 'Codigo do usuario que incluiu o comentario';
+COMMENT ON COLUMN screenshotcomentario.bloqueado      IS 'Indica que o acesso ao comentario esta bloqueado';

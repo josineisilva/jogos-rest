@@ -1,0 +1,19 @@
+CREATE TABLE noticiacomentario (
+                               id          SERIAL PRIMARY KEY,
+                               noticia_id  INTEGER   NOT NULL REFERENCES noticia,
+                               data        TIMESTAMP NOT NULL,
+                               texto       TEXT      NOT NULL,
+                               usuario_id  INTEGER   NOT NULL REFERENCES usuario,
+                               bloqueado   BOOLEAN   NOT NULL
+                               );
+CREATE INDEX noticiacomentario_noticia  ON noticiacomentario ( noticia_id );
+CREATE INDEX noticiacomentario_data     ON noticiacomentario ( data );
+CREATE INDEX noticiacomentario_usuario  ON noticiacomentario ( usuario_id );
+
+COMMENT ON TABLE  noticiacomentario             IS 'Cadastro de comentarios sobre as noticias';
+COMMENT ON COLUMN noticiacomentario.id          IS 'Codigo do comentario';
+COMMENT ON COLUMN noticiacomentario.noticia_id  IS 'Codigo da noticia do comentario';
+COMMENT ON COLUMN noticiacomentario.data        IS 'Data/hora da inclusao do comentario';
+COMMENT ON COLUMN noticiacomentario.texto       IS 'Texto do comentario';
+COMMENT ON COLUMN noticiacomentario.usuario_id  IS 'Codigo do usuario que incluiu o comentario';
+COMMENT ON COLUMN noticiacomentario.bloqueado   IS 'Indica que o acesso ao comentario esta bloqueado';

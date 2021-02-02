@@ -1,0 +1,21 @@
+CREATE TABLE screenshot (
+                        id          SERIAL PRIMARY KEY,
+                        projeto_id  INTEGER   NOT NULL REFERENCES projeto,
+                        data        TIMESTAMP NOT NULL,
+                        descricao   TEXT      NOT NULL,
+                        imagem      TEXT      NOT NULL,
+                        usuario_id  INTEGER   NOT NULL REFERENCES usuario,
+                        bloqueado   BOOLEAN   NOT NULL
+                        );
+CREATE INDEX screenshot_projeto  ON screenshot ( projeto_id );
+CREATE INDEX screenshot_data     ON screenshot ( data );
+CREATE INDEX screenshot_usuario  ON screenshot ( usuario_id );
+
+COMMENT ON TABLE  screenshot             IS 'Cadastro de screenshots dos projetos';
+COMMENT ON COLUMN screenshot.id          IS 'Codigo do screenshot';
+COMMENT ON COLUMN screenshot.projeto_id  IS 'Codigo do projeto do screenshot';
+COMMENT ON COLUMN screenshot.data        IS 'Data/hora da inclusao do screenshot';
+COMMENT ON COLUMN screenshot.descricao   IS 'Descricao do screenshot';
+COMMENT ON COLUMN screenshot.imagem      IS 'Imagem do screenshot';
+COMMENT ON COLUMN screenshot.usuario_id  IS 'Codigo do usuario que incluiu o screenshot';
+COMMENT ON COLUMN screenshot.bloqueado   IS 'Indica que o acesso ao screenshot esta bloqueado';

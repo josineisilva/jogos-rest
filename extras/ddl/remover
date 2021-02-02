@@ -1,0 +1,2 @@
+-- Deletando tabelas
+\i remover_tables

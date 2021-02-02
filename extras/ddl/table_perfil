@@ -1,0 +1,12 @@
+CREATE TABLE perfil (
+                    id    INTEGER      PRIMARY KEY,
+                    name  VARCHAR(25)  NOT NULL UNIQUE
+                    );
+CREATE INDEX perfil_name    ON perfil ( UPPER(name) );
+
+COMMENT ON TABLE  perfil       IS 'Cadastro de perfis';
+COMMENT ON COLUMN perfil.id    IS 'Codigo do perfil';
+COMMENT ON COLUMN perfil.name  IS 'Nome do perfil';
+
+INSERT INTO perfil VALUES (1,'ROLE_DESENVOLVEDOR');
+INSERT INTO perfil VALUES (2,'ROLE_USUARIO');

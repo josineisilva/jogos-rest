@@ -1,0 +1,13 @@
+CREATE TABLE voto (
+                  id          SERIAL PRIMARY KEY,
+                  usuario_id  INTEGER   NOT NULL UNIQUE REFERENCES usuario,
+                  data        TIMESTAMP NOT NULL,
+                  projeto_id  INTEGER   NOT NULL REFERENCES projeto
+                  );
+CREATE INDEX voto_projeto  ON voto ( projeto_id );
+
+COMMENT ON TABLE  voto             IS 'Cadastro de votos dos projetos';
+COMMENT ON COLUMN voto.id          IS 'Codigo do voto';
+COMMENT ON COLUMN voto.usuario_id  IS 'Codigo do usuario do voto';
+COMMENT ON COLUMN voto.data        IS 'Data/hora da inclusao do voto';
+COMMENT ON COLUMN voto.projeto_id  IS 'Codigo do projeto do voto';

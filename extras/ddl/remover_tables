@@ -1,0 +1,9 @@
+DROP TABLE noticiacomentario;
+DROP TABLE noticia;
+DROP TABLE comentario;
+DROP TABLE screenshotcomentario;
+DROP TABLE screenshot;
+DROP TABLE usuarioperfil;
+DROP TABLE usuario;
+DROP TABLE projeto;
+DROP TABLE perfil;

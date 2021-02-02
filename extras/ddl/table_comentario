@@ -1,0 +1,19 @@
+CREATE TABLE comentario (
+                        id          SERIAL PRIMARY KEY,
+                        projeto_id  INTEGER   NOT NULL REFERENCES projeto,
+                        data        TIMESTAMP NOT NULL,
+                        texto       TEXT      NOT NULL,
+                        usuario_id  INTEGER   NOT NULL REFERENCES usuario,
+                        bloqueado   BOOLEAN   NOT NULL
+                        );
+CREATE INDEX comentario_projeto  ON comentario ( projeto_id );
+CREATE INDEX comentario_data     ON comentario ( data );
+CREATE INDEX comentario_usuario  ON comentario ( usuario_id );
+
+COMMENT ON TABLE  comentario             IS 'Cadastro de comentarios sobre os projetos';
+COMMENT ON COLUMN comentario.id          IS 'Codigo do comentario';
+COMMENT ON COLUMN comentario.projeto_id  IS 'Codigo do projeto do comentario';
+COMMENT ON COLUMN comentario.data        IS 'Data/hora da inclusao do comentario';
+COMMENT ON COLUMN comentario.texto       IS 'Texto do comentario';
+COMMENT ON COLUMN comentario.usuario_id  IS 'Codigo do usuario que incluiu o comentario';
+COMMENT ON COLUMN comentario.bloqueado   IS 'Indica que o acesso ao comentario esta bloqueado';

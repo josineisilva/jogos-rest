@@ -1,0 +1,4 @@
+-- Deletando tabelas
+\i remover_tables
+-- Criando tabelas
+\i create_tables

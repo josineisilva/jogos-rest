@@ -1,0 +1,19 @@
+CREATE TABLE projeto (
+                     id          SERIAL PRIMARY KEY,
+                     nome        CHAR(60) NOT NULL,
+                     descricao   TEXT,
+                     equipe      TEXT,
+                     download    TEXT,
+                     icon        TEXT,
+                     onesheet    TEXT
+                     );
+CREATE INDEX projeto_nome    ON projeto ( UPPER(nome) );
+
+COMMENT ON TABLE  projeto             IS 'Cadastro de projetos de jogos';
+COMMENT ON COLUMN projeto.id          IS 'Codigo do projeto';
+COMMENT ON COLUMN projeto.nome        IS 'Nome do projeto';
+COMMENT ON COLUMN projeto.descricao   IS 'Descricao do projeto';
+COMMENT ON COLUMN projeto.equipe      IS 'Membros da equipe de desenvolvimento';
+COMMENT ON COLUMN projeto.download    IS 'Insntrucoes para download do jogo';
+COMMENT ON COLUMN projeto.icon        IS 'Icon do projeto';
+COMMENT ON COLUMN projeto.onesheet    IS 'One Sheet do projeto';

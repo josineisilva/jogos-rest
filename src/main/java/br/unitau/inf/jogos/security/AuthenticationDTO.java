@@ -5,7 +5,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 public class AuthenticationDTO {
     private String email;
     private String password;
-    
+
 	public String getEmail() {
 		return email;
 	}
@@ -13,7 +13,7 @@ public class AuthenticationDTO {
 	public String getPassword() {
 		return password;
 	}
-	
+
     public UsernamePasswordAuthenticationToken toToken() {
         return new UsernamePasswordAuthenticationToken(email, password);
     }

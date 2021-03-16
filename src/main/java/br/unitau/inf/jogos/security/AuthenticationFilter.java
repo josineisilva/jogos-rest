@@ -26,7 +26,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
-		String jwt = getJwt(request);		
+		String jwt = getJwt(request);
 		if (jwtService.validate(jwt)) {
 			authenticate(jwt);
 		}

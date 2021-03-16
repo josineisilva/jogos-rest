@@ -25,8 +25,8 @@ public class AuthenticationService implements UserDetailsService {
 		}
 		throw new UsernameNotFoundException("Dados inválidos!");
 	}
-	
+
 	public Usuario loggedUser() {
-		return (Usuario)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	}
 }

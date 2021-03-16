@@ -39,9 +39,12 @@ public class JwtService {
 		Date dataExpiracao = new Date(hoje.getTime() + Long.parseLong(expiration));
 		String secret = RandomString.make(200);
 		user.setSecret(secret);
-		return Jwts.builder().setSubject(user.getId().toString()).setExpiration(dataExpiracao).claim("id", user.getId())
-				.claim("name", user.getName()).claim("desenvolvedor", user.isDesenvolvedor())
-				.claim("projeto", projeto_id).signWith(SignatureAlgorithm.HS256, user.jwtSecret()).compact();
+		return Jwts.builder().setSubject(user.getId().toString()).setExpiration(dataExpiracao)
+				.claim("id", user.getId())
+				.claim("name", user.getName())
+				.claim("desenvolvedor", user.isDesenvolvedor())
+				.claim("projeto", projeto_id)
+				.signWith(SignatureAlgorithm.HS256, user.jwtSecret()).compact();
 	}
 
 	public boolean validate(String jwt) {
